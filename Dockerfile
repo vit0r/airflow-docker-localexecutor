@@ -9,7 +9,7 @@ ENV LC_MESSAGES en_US.UTF-8
 
 ENV SLUGIFY_USES_TEXT_UNIDECODE=yes
 ENV AIRFLOW_GPL_UNIDECODE=yes
-ENV AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+ENV AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
 ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
 ENV AIRFLOW_HOME=/usr/local/airflow
 

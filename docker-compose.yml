@@ -1,8 +1,9 @@
 version: '3'
 services:
-    postgres:
-        image: postgres:9.6
-        container_name: postgres
+    postgres_airflow:
+        image: postgres
+        container_name: postgres-airflow
+        hostname: postgres-airflow
         environment:
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -19,7 +20,8 @@ services:
             timeout: 5s
             retries: 5
     airflow:
-        container_name: airflow_webserver${AIRFLOW_VERSION}
+        container_name: webserver${AIRFLOW_VERSION}
+        hostname: webserver${AIRFLOW_VERSION}
         build: 
             context: .
             args: 
@@ -31,7 +33,7 @@ services:
             - AIRFLOW__SCHEDULER__CATCHUP_BY_DEFAULT=False
         restart: always
         depends_on:
-            - postgres
+            - postgres_airflow
         volumes:
             - ${DAGS_FOLDER}:/usr/local/airflow/dags
             - ${PLUGINS_FOLDER}:/usr/local/airflow/plugins
