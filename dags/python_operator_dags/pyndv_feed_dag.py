@@ -84,8 +84,6 @@ def pyndv_download():
     """
     feed_processor = core.FeedProcessor()
     feed_processor(feed_type=None, output=PYNDV_OUTPUT_FILE)
-    return feed_processor.feed_json
-
 
 default_args = {
     "owner": "airflow",

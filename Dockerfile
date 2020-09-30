@@ -1,4 +1,4 @@
-FROM python:3.7.6-slim-stretch
+FROM python:3.8.6
 
 ENV PYTHONWARNINGS=ignore
 ENV LANGUAGE en_US.UTF-8
@@ -57,7 +57,7 @@ RUN set -ex \
         /usr/share/doc \
         /usr/share/doc-base
 
-RUN pip install --no-cache -U pip setuptools wheel pytz pyOpenSSL ndg-httpsclient pyasn1 psycopg2-binary werkzeug==0.16.0
+RUN pip install --no-cache -U pip pytz wheel pyOpenSSL ndg-httpsclient pyasn1 psycopg2-binary 
 
 ARG AIRFLOW_VERSION
 ARG DAGS_FOLDER
